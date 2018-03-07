@@ -18,26 +18,6 @@
         <?php wp_enqueue_script("jquery");?>
 		<?php wp_head(); ?>
         <script type="text/javascript" src="<?php bloginfo("template_url"); ?>/js/template.js"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115028585-1"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'UA-115028585-1');
-        </script>
-        <!-- Hotjar Tracking Code for http://heelj.org.br -->
-        <script>
-            (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:800557,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-        </script>
 	</head>
 	<body <?php body_class(); ?> >
         <!-- ### Menu Principal ### -->
