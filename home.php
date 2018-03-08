@@ -18,11 +18,12 @@
 		<div class="col-md-12">
 			<div class="breadcrumb">
 				<?php wp_custom_breadcrumbs(); ?>
-			</div>
+
             <?php while ( have_posts() ) : the_post();
             	the_content();
             	endwhile; // End of the loop.
             	?>
+            </div>
 		</div>
 	</div>
 </div>

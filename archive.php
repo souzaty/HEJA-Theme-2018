@@ -1,8 +1,8 @@
 <?php
 /**
  * @package WordPress
- * @subpackage HEELJ
- * @since HEELJ 1.0
+ * @subpackage HEJA
+ * @since HEJA 1.0
 */
 
 get_header(); ?>
