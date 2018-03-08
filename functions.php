@@ -370,8 +370,8 @@ function login_styles() { ?>
      background: #009ee4 !important;
  }
  .login h1 a {
-     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/heelj-logo-login.svg') !important;
-     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/heelj-logo-login.svg') !important;
+     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/heja-logo-login.svg') !important;
+     background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/img/heja-logo-login.svg') !important;
      background-size: 100% !important;
      background-position: center center !important;
      background-repeat: no-repeat;
@@ -395,7 +395,7 @@ add_filter( 'login_headerurl', 'my_login_logo_url' );
 
 /***** Change Alt Attribute *****/
 function my_login_logo_url_title() {
-    return 'HEELJ - Hospital Estadual Ernestina Lopes Jaime.';
+    return 'HEJA - Hospital Estadual de Jaraguá Sandino de Amorim.';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
 // End Customize wp-login Page
