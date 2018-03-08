@@ -1,9 +1,9 @@
 <?php
 /**
-* @package WordPress
-* @subpackage HEELJ
-* @since HEELJ 1.0
-*/
+ * @package WordPress
+ * @subpackage HEJA
+ * @since HEJA 1.0
+ */
 
 // Funtion load scripts (Carrega scripts do bootstrap e font Awesome)
 function load_scripts() {
@@ -19,7 +19,7 @@ function load_scripts() {
     add_action( 'wp_enqueue_scripts', 'load_scripts' );
 
 // Add Functions
-require_once 'functions/heelj.php';
+require_once 'functions/heja.php';
 require_once 'functions/menu.php';
 require_once 'functions/cpt.php';
 require_once 'functions/shortcodes.php';
