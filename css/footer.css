@@ -5,6 +5,10 @@
 */
 
 /* ===== Footer Styles ===== */
+aside#text-2 {
+    margin-top: -42px;
+    padding: 0;
+}
 
 footer #heelj-footer {
 padding:50px 0;
