@@ -35,7 +35,7 @@
  		),
  		'capability_type' => 'post',
  		'hierarchical' => false,
- 		'menu_position' => 6,
+ 		'menu_position' => 5,
  		'taxonomies' => array(
  						'post_tag'
  		),
@@ -171,7 +171,7 @@
  		),
  		'capability_type' => 'post',
  		'hierarchical' => false,
- 		'menu_position' => 6,
+ 		'menu_position' => 5,
  		'taxonomies' => array(
  			'post_tag'
  		),
@@ -268,7 +268,7 @@
  		'menu_icon' => 'dashicons-admin-users',
  		'capability_type' => 'post',
  		'hierarchical' => false,
- 		'menu_position' => 6,
+ 		'menu_position' => 5,
  		'taxonomies' => array(
  			'post_tag'
  			),
@@ -346,7 +346,7 @@ function trabalhe_register()
 								),
 								'capability_type' => 'post',
 								'hierarchical' => false,
-								'menu_position' => 6,
+								'menu_position' => 5,
 								'taxonomies' => array(
 												'post_tag'
 								),
