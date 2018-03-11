@@ -265,7 +265,7 @@
  		'publicly_queryable' => true,
  		'show_ui' => true,
  		'query_var' => true,
- 		'menu_icon' => 'dashicons dashicons-id',
+ 		'menu_icon' => 'dashicons-id',
  		'capability_type' => 'post',
  		'hierarchical' => false,
  		'menu_position' => 5,
