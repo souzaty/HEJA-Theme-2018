@@ -5,179 +5,6 @@
  * @since HEJA 1.0
  */
 
- // Start CPT Corpo Clínico
- add_action('init', 'corpo_clinico_heelj_register');
- function corpo_clinico_heelj_register() {
- 	$labels = array(
- 		'name' => __('Corpo Cl&iacute;nico', 'Tipo de post para incluir os profissionais do hospital.'),
- 		'singular_name' => __('Corpo Cl&iacute;nico', 'post type singular name'),
- 		'all_items' => __('Todos profissionais'),
- 		'add_new' => _x('Novo profissional', 'Novo profissional'),
- 		'add_new_item' => __('Add novo item'),
- 		'edit_item' => __('Editar profissional'),
- 		'new_item' => __('Novo profissional Item'),
- 		'view_item' => __('Ver item do profissional'),
- 		'search_items' => __('Procurar profissional'),
- 		'not_found' => __('Nenhum profissional encontrado'),
- 		'not_found_in_trash' => __('Nenhum profissional encontrado na lixeira'),
- 		'parent_item_colon' => ''
- 	);
- 	$args   = array(
- 		'labels' => $labels,
- 		'public' => true,
- 		'publicly_queryable' => true,
- 		'show_ui' => true,
- 		'query_var' => true,
- 		'menu_icon' => 'dashicons-admin-users',
- 		'capability_type' => 'post',
- 		'hierarchical' => false,
- 		'menu_position' => 6,
- 		'taxonomies' => array(
- 			'post_tag'
- 			),
- 		'supports' => array(
- 			'title',
- 			'thumbnail',
- 			'tags'
- 			)
- 	);
- register_post_type('corpo_clinico_heelj', $args);
- 	flush_rewrite_rules();
- }
- register_taxonomy("Especialidades", array(
- 	"corpo_clinico_heelj"
- 	), array(
- 	"hierarchical" => true,
- 	"label" => "Especialidades",
- 	"singular_label" => "edital",
- 	"rewrite" => array(
- 		'slug' => 'edital'
- 		),
- 	"public" => true,
- 	"show_ui" => true,
- 	"_builtin" => true
- 	));
- add_action("admin_init", "campos_personalizados_corpo_clinico_heelj");
- function campos_personalizados_corpo_clinico_heelj() {
- 	add_meta_box("corpo_crm", "Informe o CRM", "corpo_crm", "corpo_clinico_heelj", "normal", "low");
- }
- function corpo_crm() {
- 	global $post;
- 	$custom    = get_post_meta($post->ID);
- 	$corpo_crm = $custom["corpo_crm"][0];
- ?>
- 	<input type="text" name="corpo_crm" value='<?php echo $corpo_crm;
- 	?>' /></p>
- <?php
- }
- add_action('save_post_corpo_clinico_heelj', 'save_details_post_corpo_clinico_heelj');
- function save_details_post_corpo_clinico_heelj() {
- 	global $post;
- 	update_post_meta($post->ID, "corpo_crm", $_POST["corpo_crm"]);
- }
- // End CPT Corpo Clínico
-
- // Start CPT Serviços
- add_action('init', 'servicos_heelj');
- function servicos_heelj() {
- 	$labels = array(
- 		'name' => __('Serviços', 'Tipo de post para incluir os serviços do Hospital.'),
- 		'singular_name' => __('serviços', 'post type singular name'),
- 		'all_items' => __('Todos os serviços'),
- 		'add_new' => _x('Novo serviço', 'Novo serviço'),
- 		'add_new_item' => __('Add novo serviço'),
- 		'edit_item' => __('Editar serviço'),
- 		'new_item' => __('Novo serviço Item'),
- 		'view_item' => __('Ver item do serviço'),
- 		'search_items' => __('Procurar serviço'),
- 		'not_found' => __('Nenhum serviço encontrado'),
- 		'not_found_in_trash' => __('Nenhum serviço encontrado na lixeira'),
- 		'parent_item_colon' => ''
- 	);
- 	$args   = array(
- 		'labels' => $labels,
- 		'public' => true,
- 		'publicly_queryable' => true,
- 		'show_ui' => true,
- 		'query_var' => true,
- 		'menu_icon' => 'dashicons-admin-generic',
- 		'rewrite' => array(
- 			'slug' => 'servicos%',
- 			'with_front' => false
- 		),
- 		'capability_type' => 'post',
- 		'hierarchical' => false,
- 		'menu_position' => 6,
- 		'taxonomies' => array(
- 			'post_tag'
- 		),
- 		'supports' => array(
- 			'title',
- 			'thumbnail',
- 			'editor',
- 			'excerpt',
- 			'revisions'
- 		)
- 	);
- 	register_post_type('servicos-heelj', $args);
- 	flush_rewrite_rules();
- }
- add_action("admin_init", "campos_personalizados_servicos_heelj");
- function campos_personalizados_servicos_heelj() {
- 	add_meta_box("botao_servico_heelj", "Informe label para o bot&atilde;o", "botao_servico_heelj", "servicos-heelj", "normal", "low");
- 	add_meta_box("link_botao_servico_heelj", "Informe o link para o bot&atilde;o", "link_botao_servico_heelj", "servicos-heelj", "normal", "low");
- 	add_meta_box("info_servico_heelj", "Informe o texto de informa&ccedil;&atilde;o", "info_servico_heelj", "servicos-heelj", "normal", "low");
- 	add_meta_box("link_info_servico_heelj", "Informe o link para que leva a informa&ccedil;&atilde;o", "link_info_servico_heelj", "servicos-heelj", "normal", "low");
- }
- function botao_servico_heelj() {
- 	global $post;
- 	$custom              = get_post_meta($post->ID);
- 	$botao_servico_heelj = $custom["botao_servico_heelj"][0];
- ?>
- 	<input type="text" name="botao_servico_heelj" value="<?php echo $botao_servico_heelj;
- 	?>" />
- 	<?php
- }
- function link_botao_servico_heelj() {
- 	global $post;
- 	$custom                   = get_post_meta($post->ID);
- 	$link_botao_servico_heelj = $custom["link_botao_servico_heelj"][0];
- ?>
- 	<input type="text" name="link_botao_servico_heelj" value="<?php echo $link_botao_servico_heelj;
- 	?>" />
- 	<?php
- }
- function info_servico_heelj()
- {
- 	global $post;
- 	$custom             = get_post_meta($post->ID);
- 	$info_servico_heelj = $custom["info_servico_heelj"][0];
- ?>
- 	<input type="text" name="info_servico_heelj" value="<?php echo $info_servico_heelj;
- 	?>" />
- 	<?php
- }
- function link_info_servico_heelj()
- {
- 	global $post;
- 	$custom                  = get_post_meta($post->ID);
- 	$link_info_servico_heelj = $custom["link_info_servico_heelj"][0];
- ?>
- 	<input type="text" name="link_info_servico_heelj" value="<?php echo $link_info_servico_heelj;
- ?>" />
- 	<?php
- }
- add_action('save_post_servicos-heelj', 'save_details_post_servicos_heelj');
- function save_details_post_servicos_heelj()
- {
- 	global $post;
- 	update_post_meta($post->ID, "botao_servico_heelj", $_POST["botao_servico_heelj"]);
- 	update_post_meta($post->ID, "link_botao_servico_heelj", $_POST["link_botao_servico_heelj"]);
- 	update_post_meta($post->ID, "info_servico_heelj", $_POST["info_servico_heelj"]);
- 	update_post_meta($post->ID, "link_info_servico_heelj", $_POST["link_info_servico_heelj"]);
- }
- // End CPT Serviços
-
  // Start  CPT Indicadores
  add_action('init', 'indicadores_ibgh');
  function indicadores_ibgh() {
@@ -313,7 +140,180 @@
  	update_post_meta($post->ID, "frase_heelj", $_POST["frase_heelj"]);
  }
  // End CPT indicadores
- 
+
+ // Start CPT Serviços
+ add_action('init', 'servicos_heelj');
+ function servicos_heelj() {
+ 	$labels = array(
+ 		'name' => __('Serviços', 'Tipo de post para incluir os serviços do Hospital.'),
+ 		'singular_name' => __('serviços', 'post type singular name'),
+ 		'all_items' => __('Todos os serviços'),
+ 		'add_new' => _x('Novo serviço', 'Novo serviço'),
+ 		'add_new_item' => __('Add novo serviço'),
+ 		'edit_item' => __('Editar serviço'),
+ 		'new_item' => __('Novo serviço Item'),
+ 		'view_item' => __('Ver item do serviço'),
+ 		'search_items' => __('Procurar serviço'),
+ 		'not_found' => __('Nenhum serviço encontrado'),
+ 		'not_found_in_trash' => __('Nenhum serviço encontrado na lixeira'),
+ 		'parent_item_colon' => ''
+ 	);
+ 	$args   = array(
+ 		'labels' => $labels,
+ 		'public' => true,
+ 		'publicly_queryable' => true,
+ 		'show_ui' => true,
+ 		'query_var' => true,
+ 		'menu_icon' => 'dashicons-admin-generic',
+ 		'rewrite' => array(
+ 			'slug' => 'servicos%',
+ 			'with_front' => false
+ 		),
+ 		'capability_type' => 'post',
+ 		'hierarchical' => false,
+ 		'menu_position' => 6,
+ 		'taxonomies' => array(
+ 			'post_tag'
+ 		),
+ 		'supports' => array(
+ 			'title',
+ 			'thumbnail',
+ 			'editor',
+ 			'excerpt',
+ 			'revisions'
+ 		)
+ 	);
+ 	register_post_type('servicos-heelj', $args);
+ 	flush_rewrite_rules();
+ }
+ add_action("admin_init", "campos_personalizados_servicos_heelj");
+ function campos_personalizados_servicos_heelj() {
+ 	add_meta_box("botao_servico_heelj", "Informe label para o bot&atilde;o", "botao_servico_heelj", "servicos-heelj", "normal", "low");
+ 	add_meta_box("link_botao_servico_heelj", "Informe o link para o bot&atilde;o", "link_botao_servico_heelj", "servicos-heelj", "normal", "low");
+ 	add_meta_box("info_servico_heelj", "Informe o texto de informa&ccedil;&atilde;o", "info_servico_heelj", "servicos-heelj", "normal", "low");
+ 	add_meta_box("link_info_servico_heelj", "Informe o link para que leva a informa&ccedil;&atilde;o", "link_info_servico_heelj", "servicos-heelj", "normal", "low");
+ }
+ function botao_servico_heelj() {
+ 	global $post;
+ 	$custom              = get_post_meta($post->ID);
+ 	$botao_servico_heelj = $custom["botao_servico_heelj"][0];
+ ?>
+ 	<input type="text" name="botao_servico_heelj" value="<?php echo $botao_servico_heelj;
+ 	?>" />
+ 	<?php
+ }
+ function link_botao_servico_heelj() {
+ 	global $post;
+ 	$custom                   = get_post_meta($post->ID);
+ 	$link_botao_servico_heelj = $custom["link_botao_servico_heelj"][0];
+ ?>
+ 	<input type="text" name="link_botao_servico_heelj" value="<?php echo $link_botao_servico_heelj;
+ 	?>" />
+ 	<?php
+ }
+ function info_servico_heelj()
+ {
+ 	global $post;
+ 	$custom             = get_post_meta($post->ID);
+ 	$info_servico_heelj = $custom["info_servico_heelj"][0];
+ ?>
+ 	<input type="text" name="info_servico_heelj" value="<?php echo $info_servico_heelj;
+ 	?>" />
+ 	<?php
+ }
+ function link_info_servico_heelj()
+ {
+ 	global $post;
+ 	$custom                  = get_post_meta($post->ID);
+ 	$link_info_servico_heelj = $custom["link_info_servico_heelj"][0];
+ ?>
+ 	<input type="text" name="link_info_servico_heelj" value="<?php echo $link_info_servico_heelj;
+ ?>" />
+ 	<?php
+ }
+ add_action('save_post_servicos-heelj', 'save_details_post_servicos_heelj');
+ function save_details_post_servicos_heelj()
+ {
+ 	global $post;
+ 	update_post_meta($post->ID, "botao_servico_heelj", $_POST["botao_servico_heelj"]);
+ 	update_post_meta($post->ID, "link_botao_servico_heelj", $_POST["link_botao_servico_heelj"]);
+ 	update_post_meta($post->ID, "info_servico_heelj", $_POST["info_servico_heelj"]);
+ 	update_post_meta($post->ID, "link_info_servico_heelj", $_POST["link_info_servico_heelj"]);
+ }
+ // End CPT Serviços
+
+ // Start CPT Corpo Clínico
+ add_action('init', 'corpo_clinico_heelj_register');
+ function corpo_clinico_heelj_register() {
+ 	$labels = array(
+ 		'name' => __('Corpo Cl&iacute;nico', 'Tipo de post para incluir os profissionais do hospital.'),
+ 		'singular_name' => __('Corpo Cl&iacute;nico', 'post type singular name'),
+ 		'all_items' => __('Todos profissionais'),
+ 		'add_new' => _x('Novo profissional', 'Novo profissional'),
+ 		'add_new_item' => __('Add novo item'),
+ 		'edit_item' => __('Editar profissional'),
+ 		'new_item' => __('Novo profissional Item'),
+ 		'view_item' => __('Ver item do profissional'),
+ 		'search_items' => __('Procurar profissional'),
+ 		'not_found' => __('Nenhum profissional encontrado'),
+ 		'not_found_in_trash' => __('Nenhum profissional encontrado na lixeira'),
+ 		'parent_item_colon' => ''
+ 	);
+ 	$args   = array(
+ 		'labels' => $labels,
+ 		'public' => true,
+ 		'publicly_queryable' => true,
+ 		'show_ui' => true,
+ 		'query_var' => true,
+ 		'menu_icon' => 'dashicons-admin-users',
+ 		'capability_type' => 'post',
+ 		'hierarchical' => false,
+ 		'menu_position' => 6,
+ 		'taxonomies' => array(
+ 			'post_tag'
+ 			),
+ 		'supports' => array(
+ 			'title',
+ 			'thumbnail',
+ 			'tags'
+ 			)
+ 	);
+ register_post_type('corpo_clinico_heelj', $args);
+ 	flush_rewrite_rules();
+ }
+ register_taxonomy("Especialidades", array(
+ 	"corpo_clinico_heelj"
+ 	), array(
+ 	"hierarchical" => true,
+ 	"label" => "Especialidades",
+ 	"singular_label" => "edital",
+ 	"rewrite" => array(
+ 		'slug' => 'edital'
+ 		),
+ 	"public" => true,
+ 	"show_ui" => true,
+ 	"_builtin" => true
+ 	));
+ add_action("admin_init", "campos_personalizados_corpo_clinico_heelj");
+ function campos_personalizados_corpo_clinico_heelj() {
+ 	add_meta_box("corpo_crm", "Informe o CRM", "corpo_crm", "corpo_clinico_heelj", "normal", "low");
+ }
+ function corpo_crm() {
+ 	global $post;
+ 	$custom    = get_post_meta($post->ID);
+ 	$corpo_crm = $custom["corpo_crm"][0];
+ ?>
+ 	<input type="text" name="corpo_crm" value='<?php echo $corpo_crm;
+ 	?>' /></p>
+ <?php
+ }
+ add_action('save_post_corpo_clinico_heelj', 'save_details_post_corpo_clinico_heelj');
+ function save_details_post_corpo_clinico_heelj() {
+ 	global $post;
+ 	update_post_meta($post->ID, "corpo_crm", $_POST["corpo_crm"]);
+ }
+ // End CPT Corpo Clínico
+
 // Start CPT Trabalhe Conosco
 add_action('init', 'trabalhe_register');
 function trabalhe_register()
