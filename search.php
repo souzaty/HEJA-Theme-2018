@@ -1,9 +1,9 @@
 <?php
-/* Template Name: SEARCH */
-/**
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
+/** Template Name: SEARCH
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
 */
 ?>
 <?php

@@ -1,9 +1,10 @@
 <?php
 /** Theme Shortcodes
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
- */
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
+*/
 
  // Start Shortcode Notícias Home
 function noticias_home_heelj_short($atts) { ob_start(); ?>

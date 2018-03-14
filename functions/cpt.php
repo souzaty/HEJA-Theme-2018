@@ -1,9 +1,10 @@
 <?php
 /** Theme Custom Post Types
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
- */
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
+*/
 
  // Start  CPT Indicadores
  add_action('init', 'indicadores_ibgh');

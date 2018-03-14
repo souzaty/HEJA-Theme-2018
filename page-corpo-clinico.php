@@ -1,9 +1,9 @@
 <?php
-/* Template Name: CORPO CLINICO HEELJ */
-/**
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
+/** Template Name: Corpo Clínico
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
 */
 ?>
 <div id="pagina-interna-heelj">

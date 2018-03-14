@@ -1,9 +1,9 @@
 <?php
-/* Template Name: Página Sala de Imprensa */
-/**
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
+/** Template Name: Página Sala de Imprensa
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
 */
 ?>
 <div id="pagina-interna-heelj">

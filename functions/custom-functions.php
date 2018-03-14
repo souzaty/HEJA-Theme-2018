@@ -1,9 +1,10 @@
 <?php
 /** HEJA Theme Functions
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
- */
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
+*/
 
 add_filter('wp_nav_menu_items', 'add_search_box_to_menu_heelj', 10, 2);
 function add_search_box_to_menu_heelj($items, $args) {

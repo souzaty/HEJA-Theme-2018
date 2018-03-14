@@ -1,9 +1,9 @@
 <?php
-/* Template Name: Erro 404	*/
-/**
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
+/** Template Name: Erro 404
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
 */
 ?>
 <div id="pagina-interna-heelj" style="height:auto;">

@@ -1,9 +1,9 @@
 <?php
-/** Template Name: Search Form **/
-/**
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
+/** Template Name: Search Form
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
 */
 ?>
 <form role='search' method='get' class='search-form' action='" . esc_url(home_url('/')) . "'>

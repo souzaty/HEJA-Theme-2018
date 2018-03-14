@@ -1,9 +1,9 @@
 <?php
-/* Template Name: Página de Notícias */
-/**
- * @package WordPress
- * @subpackage HEJA
- * @since HEJA 1.0
+/** Template Name: Página de Notícias
+*
+* @package WordPress
+* @subpackage HEJA
+* @since HEJA 1.0
 */
 ?>
 
