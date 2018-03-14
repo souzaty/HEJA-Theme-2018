@@ -1,5 +1,10 @@
 <?php
-	/* Template Name: SAU */
+/* Template Name: Página SAU */
+/**
+ * @package WordPress
+ * @subpackage HEJA
+ * @since HEJA 1.0
+*/
 ?>
 <div id="pagina-interna-heelj">
 		<?php get_header(); ?>

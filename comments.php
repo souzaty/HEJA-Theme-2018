@@ -4,9 +4,7 @@
  * @subpackage HEJA
  * @since HEJA 1.0
  */
-
 ?>
-
 <div id="comments" class="comments-area">
 	<?php if ( have_comments() ) : ?>
 		<h2 class="comments-title">

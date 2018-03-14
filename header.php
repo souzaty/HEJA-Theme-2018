@@ -1,10 +1,10 @@
 <?php
-	/**
-	 * @package WordPress
-	 * @subpackage HEJA
-	 * @since HEJA 1.0
-	*/
-	?>
+/**
+ * @package WordPress
+ * @subpackage HEJA
+ * @since HEJA 1.0
+*/
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 	<head>
